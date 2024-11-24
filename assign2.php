@@ -16,3 +16,39 @@ if (!$result || !isset($result["results"]) ) {
 $data = $result["results"]; 
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <body>
+        <table>
+            <!-- Table Header -->
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Semester</th>
+                    <th>The programs</th>
+                    <th>Nationality</th>
+                    <th>Colleges</th> 
+                    <th>No. of Students</th>
+                </tr>
+            </thead>
+            <!-- Table Content -->
+            <tbody>
+                <?php
+                    #a  loop to go through the JSON file and print the data
+                    foreach ($data as $student) { 
+                        echo "<tr>"; 
+                        echo "<td>", htmlspecialchars($student["year"]), "</td>"; 
+                        echo "<td>", htmlspecialchars($student["semester"]), "</td>" ;
+                        echo "<td>", htmlspecialchars($student["the_programs"]), "</td>" ;
+                        echo "<td>", htmlspecialchars($student["nationality"]), "</td>" ;
+                        echo "<td>", htmlspecialchars($student["colleges"]), "</td>"; 
+                        echo "<td>", htmlspecialchars($student["number_of_students"]), "</td>" ;
+                        echo "</tr>"; 
+                    }
+                ?>
+            </tbody>
+        </table>
+    </body>
+</html>
