@@ -49,29 +49,19 @@ $data = $result["results"];
             <tbody>
                 <?php 
                        // Loop through each record and display it in the table
-                       foreach ($data as $record) {
-                           // Safeguard against missing fields using the null coalescing operator (??)
-                           $year = $record["record"]["year"] ?? "N/A";
-                           $semester = $record["record"]["semester"] ?? "N/A";
-                           $program = $record["record"]["the_programs"] ?? "N/A";
-                           $nationality = $record["record"]["nationality"] ?? "N/A";
-                           $college = $record["record"]["colleges"] ?? "N/A";
-                           $num_students = $record["record"]["number_of_students"] ?? "N/A";
-       
-                           echo "<tr>";
-                           echo "<td>" . htmlspecialchars($year) . "</td>";
-                           echo "<td>" . htmlspecialchars($semester) . "</td>";
-                           echo "<td>" . htmlspecialchars($program) . "</td>";
-                           echo "<td>" . htmlspecialchars($nationality) . "</td>";
-                           echo "<td>" . htmlspecialchars($college) . "</td>";
-                           echo "<td>" . htmlspecialchars($num_students) . "</td>";
-                           echo "</tr>";
-                       }
-                       
-       
+                    foreach ($data as $student) { 
+                        echo "<tr>"; 
+                        echo "<td>", htmlspecialchars($student["year"]), "</td>"; 
+                        echo "<td>", htmlspecialchars($student["semester"]), "</td>" ;
+                        echo "<td>", htmlspecialchars($student["the_programs"]), "</td>" ;
+                        echo "<td>", htmlspecialchars($student["nationality"]), "</td>" ;
+                        echo "<td>", htmlspecialchars($student["colleges"]), "</td>"; 
+                        echo "<td>", htmlspecialchars($student["number_of_students"]), "</td>" ;
+                        echo "</tr>"; 
+                    }
                 ?>
             </tbody>
         </table>
-                </main>
+        </main>
     </body>
 </html>
